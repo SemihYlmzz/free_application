@@ -3,12 +3,17 @@ import 'dart:async';
 import 'package:free_application/user/models/user_model.dart';
 
 class UserRepository {
-  final _controller = StreamController<UserModel?>.broadcast();
-  Stream<UserModel?> get currentUserStream => _controller.stream;
+  UserRepository() {
+    currentUserStream.listen((user) {
+      currentUser = user;
+    });
+  }
 
-  Stream<UserModel?> watchCurrentUser() => _controller.stream;
+  final _controller = StreamController<UserModel>.broadcast();
+  Stream<UserModel> get currentUserStream => _controller.stream;
+  UserModel? currentUser;
 
-  Future<UserModel> getUser() async {
+  Future<void> getUser() async {
     await Future.delayed(const Duration(seconds: 3));
     const newUserData = UserModel(
       username: 'Semih',
@@ -16,7 +21,6 @@ class UserRepository {
       age: 25,
     );
     _controller.sink.add(newUserData);
-    return newUserData;
   }
 
   Future<void> updateUser(UserModel updatedUser) async {

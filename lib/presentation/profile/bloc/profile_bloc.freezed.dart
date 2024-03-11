@@ -19,32 +19,41 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
+    required TResult Function(UserModel currentUser) updateCurrentUserValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
+    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
+    TResult Function(UserModel currentUser)? updateCurrentUserValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileUpdateCurrentUserValue value)
+        updateCurrentUserValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileUpdateCurrentUserValue value)?
+        updateCurrentUserValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileUpdateCurrentUserValue value)?
+        updateCurrentUserValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,7 +96,7 @@ class __$$ProfileGetCurrentUserImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
+class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   const _$ProfileGetCurrentUserImpl();
 
   @override
@@ -109,6 +118,7 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
+    required TResult Function(UserModel currentUser) updateCurrentUserValue,
   }) {
     return getCurrentUser();
   }
@@ -117,6 +127,7 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
+    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
   }) {
     return getCurrentUser?.call();
   }
@@ -125,6 +136,7 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
+    TResult Function(UserModel currentUser)? updateCurrentUserValue,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -136,7 +148,9 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileUpdateCurrentUserValue value)
+        updateCurrentUserValue,
   }) {
     return getCurrentUser(this);
   }
@@ -144,7 +158,9 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileUpdateCurrentUserValue value)?
+        updateCurrentUserValue,
   }) {
     return getCurrentUser?.call(this);
   }
@@ -152,7 +168,9 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileUpdateCurrentUserValue value)?
+        updateCurrentUserValue,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -162,8 +180,163 @@ class _$ProfileGetCurrentUserImpl implements ProfileGetCurrentUser {
   }
 }
 
-abstract class ProfileGetCurrentUser implements ProfileEvent {
-  const factory ProfileGetCurrentUser() = _$ProfileGetCurrentUserImpl;
+abstract class _ProfileGetCurrentUser implements ProfileEvent {
+  const factory _ProfileGetCurrentUser() = _$ProfileGetCurrentUserImpl;
+}
+
+/// @nodoc
+abstract class _$$ProfileUpdateCurrentUserValueImplCopyWith<$Res> {
+  factory _$$ProfileUpdateCurrentUserValueImplCopyWith(
+          _$ProfileUpdateCurrentUserValueImpl value,
+          $Res Function(_$ProfileUpdateCurrentUserValueImpl) then) =
+      __$$ProfileUpdateCurrentUserValueImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel currentUser});
+
+  $UserModelCopyWith<$Res> get currentUser;
+}
+
+/// @nodoc
+class __$$ProfileUpdateCurrentUserValueImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res,
+        _$ProfileUpdateCurrentUserValueImpl>
+    implements _$$ProfileUpdateCurrentUserValueImplCopyWith<$Res> {
+  __$$ProfileUpdateCurrentUserValueImplCopyWithImpl(
+      _$ProfileUpdateCurrentUserValueImpl _value,
+      $Res Function(_$ProfileUpdateCurrentUserValueImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentUser = null,
+  }) {
+    return _then(_$ProfileUpdateCurrentUserValueImpl(
+      null == currentUser
+          ? _value.currentUser
+          : currentUser // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get currentUser {
+    return $UserModelCopyWith<$Res>(_value.currentUser, (value) {
+      return _then(_value.copyWith(currentUser: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ProfileUpdateCurrentUserValueImpl
+    implements _ProfileUpdateCurrentUserValue {
+  const _$ProfileUpdateCurrentUserValueImpl(this.currentUser);
+
+  @override
+  final UserModel currentUser;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.updateCurrentUserValue(currentUser: $currentUser)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileUpdateCurrentUserValueImpl &&
+            (identical(other.currentUser, currentUser) ||
+                other.currentUser == currentUser));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, currentUser);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfileUpdateCurrentUserValueImplCopyWith<
+          _$ProfileUpdateCurrentUserValueImpl>
+      get copyWith => __$$ProfileUpdateCurrentUserValueImplCopyWithImpl<
+          _$ProfileUpdateCurrentUserValueImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCurrentUser,
+    required TResult Function(UserModel currentUser) updateCurrentUserValue,
+  }) {
+    return updateCurrentUserValue(currentUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCurrentUser,
+    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
+  }) {
+    return updateCurrentUserValue?.call(currentUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCurrentUser,
+    TResult Function(UserModel currentUser)? updateCurrentUserValue,
+    required TResult orElse(),
+  }) {
+    if (updateCurrentUserValue != null) {
+      return updateCurrentUserValue(currentUser);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileUpdateCurrentUserValue value)
+        updateCurrentUserValue,
+  }) {
+    return updateCurrentUserValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileUpdateCurrentUserValue value)?
+        updateCurrentUserValue,
+  }) {
+    return updateCurrentUserValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileUpdateCurrentUserValue value)?
+        updateCurrentUserValue,
+    required TResult orElse(),
+  }) {
+    if (updateCurrentUserValue != null) {
+      return updateCurrentUserValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProfileUpdateCurrentUserValue implements ProfileEvent {
+  const factory _ProfileUpdateCurrentUserValue(final UserModel currentUser) =
+      _$ProfileUpdateCurrentUserValueImpl;
+
+  UserModel get currentUser;
+  @JsonKey(ignore: true)
+  _$$ProfileUpdateCurrentUserValueImplCopyWith<
+          _$ProfileUpdateCurrentUserValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

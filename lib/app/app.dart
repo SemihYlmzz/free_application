@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_application/app/app_router.dart';
 import 'package:free_application/user/user_repository.dart';
 import 'package:go_router/go_router.dart';
@@ -21,12 +22,15 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: ThemeData.dark(),
-      title: 'Flutter Demo',
+    return MultiBlocProvider(
+      providers: [RepositoryProvider.value(value: widget.userRepository)],
+      child: MaterialApp.router(
+        theme: ThemeData.dark(),
+        title: 'Flutter Demo',
 
-      // Router
-      routerConfig: _appRouter,
+        // Router
+        routerConfig: _appRouter,
+      ),
     );
   }
 }

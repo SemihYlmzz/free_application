@@ -10,14 +10,10 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<SettingsBloc>(
-          create: (context) => SettingsBloc(
-            userRepository: context.read<UserRepository>(),
-          )..add(const SettingsEvent.getCurrentUser()),
-        ),
-      ],
+    return BlocProvider(
+      create: (context) => SettingsBloc(
+        userRepository: context.read<UserRepository>(),
+      )..add(const SettingsEvent.getCurrentUser()),
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return state.maybeMap(
@@ -79,15 +75,9 @@ class SettingsScreen extends StatelessWidget {
                         // if (cubitState.newEmail == null) {
                         //   return;
                         // }
-                        // context.read<SettingsBloc>().add(
-                        //       SettingsEvent.updateUser(
-                        //         user: state.user.copyWith(
-                        //           username: cubitState.newUsername!,
-                        //           email: cubitState.newEmail!,
-                        //           age: cubitState.newAge!,
-                        //         ),
-                        //       ),
-                        //     );
+                        context.read<SettingsBloc>().add(
+                              const SettingsEvent.updateCurrentUser(),
+                            );
                       },
                       child: const Text('Update User'),
                     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_application/presentation/profile/widgets/profile_app_bar.dart';
+import 'package:free_application/user/user.dart';
 import 'package:go_router/go_router.dart';
 
 import '../bloc/profile_bloc.dart';
@@ -11,7 +12,9 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProfileBloc(),
+      create: (context) => ProfileBloc(
+        userRepository: context.read<UserRepository>(),
+      )..add(const ProfileEvent.getCurrentUser()),
       child: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
           return state.maybeMap(
