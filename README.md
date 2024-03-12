@@ -1,3 +1,1 @@
-# free_application
-
-A new Flutter project.
+This Project created for test my state management solutions.
