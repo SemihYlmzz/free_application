@@ -19,22 +19,19 @@ mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
-    required TResult Function() updateCurrentUser,
-    required TResult Function(UserModel currentUser) updateCurrentUserValue,
+    required TResult Function(UserModel updatedUser) updateCurrentUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
-    TResult? Function()? updateCurrentUser,
-    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
+    TResult? Function(UserModel updatedUser)? updateCurrentUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
-    TResult Function()? updateCurrentUser,
-    TResult Function(UserModel currentUser)? updateCurrentUserValue,
+    TResult Function(UserModel updatedUser)? updateCurrentUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,24 +40,18 @@ mixin _$SettingsEvent {
     required TResult Function(SettingsGetCurrentUser value) getCurrentUser,
     required TResult Function(SettingsUpdateCurrentUser value)
         updateCurrentUser,
-    required TResult Function(SettingsUpdateCurrentUserValue value)
-        updateCurrentUserValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SettingsGetCurrentUser value)? getCurrentUser,
     TResult? Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult? Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SettingsGetCurrentUser value)? getCurrentUser,
     TResult Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,8 +117,7 @@ class _$SettingsGetCurrentUserImpl implements SettingsGetCurrentUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
-    required TResult Function() updateCurrentUser,
-    required TResult Function(UserModel currentUser) updateCurrentUserValue,
+    required TResult Function(UserModel updatedUser) updateCurrentUser,
   }) {
     return getCurrentUser();
   }
@@ -136,8 +126,7 @@ class _$SettingsGetCurrentUserImpl implements SettingsGetCurrentUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
-    TResult? Function()? updateCurrentUser,
-    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
+    TResult? Function(UserModel updatedUser)? updateCurrentUser,
   }) {
     return getCurrentUser?.call();
   }
@@ -146,8 +135,7 @@ class _$SettingsGetCurrentUserImpl implements SettingsGetCurrentUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
-    TResult Function()? updateCurrentUser,
-    TResult Function(UserModel currentUser)? updateCurrentUserValue,
+    TResult Function(UserModel updatedUser)? updateCurrentUser,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -162,8 +150,6 @@ class _$SettingsGetCurrentUserImpl implements SettingsGetCurrentUser {
     required TResult Function(SettingsGetCurrentUser value) getCurrentUser,
     required TResult Function(SettingsUpdateCurrentUser value)
         updateCurrentUser,
-    required TResult Function(SettingsUpdateCurrentUserValue value)
-        updateCurrentUserValue,
   }) {
     return getCurrentUser(this);
   }
@@ -173,8 +159,6 @@ class _$SettingsGetCurrentUserImpl implements SettingsGetCurrentUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SettingsGetCurrentUser value)? getCurrentUser,
     TResult? Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult? Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
   }) {
     return getCurrentUser?.call(this);
   }
@@ -184,8 +168,6 @@ class _$SettingsGetCurrentUserImpl implements SettingsGetCurrentUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SettingsGetCurrentUser value)? getCurrentUser,
     TResult Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -205,6 +187,10 @@ abstract class _$$SettingsUpdateCurrentUserImplCopyWith<$Res> {
           _$SettingsUpdateCurrentUserImpl value,
           $Res Function(_$SettingsUpdateCurrentUserImpl) then) =
       __$$SettingsUpdateCurrentUserImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel updatedUser});
+
+  $UserModelCopyWith<$Res> get updatedUser;
 }
 
 /// @nodoc
@@ -215,58 +201,88 @@ class __$$SettingsUpdateCurrentUserImplCopyWithImpl<$Res>
       _$SettingsUpdateCurrentUserImpl _value,
       $Res Function(_$SettingsUpdateCurrentUserImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? updatedUser = null,
+  }) {
+    return _then(_$SettingsUpdateCurrentUserImpl(
+      updatedUser: null == updatedUser
+          ? _value.updatedUser
+          : updatedUser // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get updatedUser {
+    return $UserModelCopyWith<$Res>(_value.updatedUser, (value) {
+      return _then(_value.copyWith(updatedUser: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$SettingsUpdateCurrentUserImpl implements SettingsUpdateCurrentUser {
-  const _$SettingsUpdateCurrentUserImpl();
+  const _$SettingsUpdateCurrentUserImpl({required this.updatedUser});
+
+  @override
+  final UserModel updatedUser;
 
   @override
   String toString() {
-    return 'SettingsEvent.updateCurrentUser()';
+    return 'SettingsEvent.updateCurrentUser(updatedUser: $updatedUser)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SettingsUpdateCurrentUserImpl);
+            other is _$SettingsUpdateCurrentUserImpl &&
+            (identical(other.updatedUser, updatedUser) ||
+                other.updatedUser == updatedUser));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, updatedUser);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SettingsUpdateCurrentUserImplCopyWith<_$SettingsUpdateCurrentUserImpl>
+      get copyWith => __$$SettingsUpdateCurrentUserImplCopyWithImpl<
+          _$SettingsUpdateCurrentUserImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
-    required TResult Function() updateCurrentUser,
-    required TResult Function(UserModel currentUser) updateCurrentUserValue,
+    required TResult Function(UserModel updatedUser) updateCurrentUser,
   }) {
-    return updateCurrentUser();
+    return updateCurrentUser(updatedUser);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
-    TResult? Function()? updateCurrentUser,
-    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
+    TResult? Function(UserModel updatedUser)? updateCurrentUser,
   }) {
-    return updateCurrentUser?.call();
+    return updateCurrentUser?.call(updatedUser);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
-    TResult Function()? updateCurrentUser,
-    TResult Function(UserModel currentUser)? updateCurrentUserValue,
+    TResult Function(UserModel updatedUser)? updateCurrentUser,
     required TResult orElse(),
   }) {
     if (updateCurrentUser != null) {
-      return updateCurrentUser();
+      return updateCurrentUser(updatedUser);
     }
     return orElse();
   }
@@ -277,8 +293,6 @@ class _$SettingsUpdateCurrentUserImpl implements SettingsUpdateCurrentUser {
     required TResult Function(SettingsGetCurrentUser value) getCurrentUser,
     required TResult Function(SettingsUpdateCurrentUser value)
         updateCurrentUser,
-    required TResult Function(SettingsUpdateCurrentUserValue value)
-        updateCurrentUserValue,
   }) {
     return updateCurrentUser(this);
   }
@@ -288,8 +302,6 @@ class _$SettingsUpdateCurrentUserImpl implements SettingsUpdateCurrentUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SettingsGetCurrentUser value)? getCurrentUser,
     TResult? Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult? Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
   }) {
     return updateCurrentUser?.call(this);
   }
@@ -299,8 +311,6 @@ class _$SettingsUpdateCurrentUserImpl implements SettingsUpdateCurrentUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SettingsGetCurrentUser value)? getCurrentUser,
     TResult Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
     required TResult orElse(),
   }) {
     if (updateCurrentUser != null) {
@@ -311,168 +321,12 @@ class _$SettingsUpdateCurrentUserImpl implements SettingsUpdateCurrentUser {
 }
 
 abstract class SettingsUpdateCurrentUser implements SettingsEvent {
-  const factory SettingsUpdateCurrentUser() = _$SettingsUpdateCurrentUserImpl;
-}
+  const factory SettingsUpdateCurrentUser(
+      {required final UserModel updatedUser}) = _$SettingsUpdateCurrentUserImpl;
 
-/// @nodoc
-abstract class _$$SettingsUpdateCurrentUserValueImplCopyWith<$Res> {
-  factory _$$SettingsUpdateCurrentUserValueImplCopyWith(
-          _$SettingsUpdateCurrentUserValueImpl value,
-          $Res Function(_$SettingsUpdateCurrentUserValueImpl) then) =
-      __$$SettingsUpdateCurrentUserValueImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UserModel currentUser});
-
-  $UserModelCopyWith<$Res> get currentUser;
-}
-
-/// @nodoc
-class __$$SettingsUpdateCurrentUserValueImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res,
-        _$SettingsUpdateCurrentUserValueImpl>
-    implements _$$SettingsUpdateCurrentUserValueImplCopyWith<$Res> {
-  __$$SettingsUpdateCurrentUserValueImplCopyWithImpl(
-      _$SettingsUpdateCurrentUserValueImpl _value,
-      $Res Function(_$SettingsUpdateCurrentUserValueImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? currentUser = null,
-  }) {
-    return _then(_$SettingsUpdateCurrentUserValueImpl(
-      null == currentUser
-          ? _value.currentUser
-          : currentUser // ignore: cast_nullable_to_non_nullable
-              as UserModel,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserModelCopyWith<$Res> get currentUser {
-    return $UserModelCopyWith<$Res>(_value.currentUser, (value) {
-      return _then(_value.copyWith(currentUser: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$SettingsUpdateCurrentUserValueImpl
-    implements SettingsUpdateCurrentUserValue {
-  const _$SettingsUpdateCurrentUserValueImpl(this.currentUser);
-
-  @override
-  final UserModel currentUser;
-
-  @override
-  String toString() {
-    return 'SettingsEvent.updateCurrentUserValue(currentUser: $currentUser)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SettingsUpdateCurrentUserValueImpl &&
-            (identical(other.currentUser, currentUser) ||
-                other.currentUser == currentUser));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, currentUser);
-
+  UserModel get updatedUser;
   @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SettingsUpdateCurrentUserValueImplCopyWith<
-          _$SettingsUpdateCurrentUserValueImpl>
-      get copyWith => __$$SettingsUpdateCurrentUserValueImplCopyWithImpl<
-          _$SettingsUpdateCurrentUserValueImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getCurrentUser,
-    required TResult Function() updateCurrentUser,
-    required TResult Function(UserModel currentUser) updateCurrentUserValue,
-  }) {
-    return updateCurrentUserValue(currentUser);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getCurrentUser,
-    TResult? Function()? updateCurrentUser,
-    TResult? Function(UserModel currentUser)? updateCurrentUserValue,
-  }) {
-    return updateCurrentUserValue?.call(currentUser);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getCurrentUser,
-    TResult Function()? updateCurrentUser,
-    TResult Function(UserModel currentUser)? updateCurrentUserValue,
-    required TResult orElse(),
-  }) {
-    if (updateCurrentUserValue != null) {
-      return updateCurrentUserValue(currentUser);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SettingsGetCurrentUser value) getCurrentUser,
-    required TResult Function(SettingsUpdateCurrentUser value)
-        updateCurrentUser,
-    required TResult Function(SettingsUpdateCurrentUserValue value)
-        updateCurrentUserValue,
-  }) {
-    return updateCurrentUserValue(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SettingsGetCurrentUser value)? getCurrentUser,
-    TResult? Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult? Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
-  }) {
-    return updateCurrentUserValue?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SettingsGetCurrentUser value)? getCurrentUser,
-    TResult Function(SettingsUpdateCurrentUser value)? updateCurrentUser,
-    TResult Function(SettingsUpdateCurrentUserValue value)?
-        updateCurrentUserValue,
-    required TResult orElse(),
-  }) {
-    if (updateCurrentUserValue != null) {
-      return updateCurrentUserValue(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SettingsUpdateCurrentUserValue implements SettingsEvent {
-  const factory SettingsUpdateCurrentUserValue(final UserModel currentUser) =
-      _$SettingsUpdateCurrentUserValueImpl;
-
-  UserModel get currentUser;
-  @JsonKey(ignore: true)
-  _$$SettingsUpdateCurrentUserValueImplCopyWith<
-          _$SettingsUpdateCurrentUserValueImpl>
+  _$$SettingsUpdateCurrentUserImplCopyWith<_$SettingsUpdateCurrentUserImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

@@ -58,25 +58,15 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () {
-                        // final cubitState = context.read<SettingsCubit>().state;
-                        // if (cubitState.newUsername == null) {
-                        //   ScaffoldMessenger.of(context)
-                        //     ..hideCurrentSnackBar()
-                        //     ..showSnackBar(SnackBar(
-                        //       backgroundColor:
-                        //           Theme.of(context).colorScheme.error,
-                        //       content: const Text('Username cannot be empty!'),
-                        //     ));
-                        //   return;
-                        // }
-                        // if (cubitState.newAge == null) {
-                        //   return;
-                        // }
-                        // if (cubitState.newEmail == null) {
-                        //   return;
-                        // }
                         context.read<SettingsBloc>().add(
-                              const SettingsEvent.updateCurrentUser(),
+                              SettingsEvent.updateCurrentUser(
+                                updatedUser: UserModel(
+                                  authID: state.currentUser.authID,
+                                  username: 'newUsername',
+                                  email: 'newEmail',
+                                  age: 0,
+                                ),
+                              ),
                             );
                       },
                       child: const Text('Update User'),

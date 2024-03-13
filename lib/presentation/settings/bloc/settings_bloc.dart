@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:free_application/user/user.dart';
@@ -14,43 +13,37 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     required UserRepository userRepository,
   })  : _userRepository = userRepository,
         super(const SettingsState.initial()) {
-    on<SettingsEvent>(
-      (event, emit) async {
-        emit(const SettingsState.loading());
-        await event.map(
-          getCurrentUser: (e) async {
-            if (_userRepository.currentUser != null) {
-              return emit(SettingsState.data(_userRepository.currentUser!));
-            }
-            await _userRepository.getUser();
-          },
-          updateCurrentUserValue: (value) {
-            emit(SettingsState.data(value.currentUser));
-          },
-          updateCurrentUser: (e) async {
-            Random random = Random();
-            _userRepository.updateUser(UserModel(
-              username: 'username',
-              email: 'email',
-              age: random.nextInt(50),
-            ));
-          },
-        );
-      },
-    );
-
-    _currentUserSubscription ??= _userRepository.currentUserStream.listen(
-      (user) {
-        add(SettingsEvent.updateCurrentUserValue(user));
-      },
-    );
+    on<SettingsEvent>(_onSettingsEvent);
   }
   final UserRepository _userRepository;
-  StreamSubscription<UserModel>? _currentUserSubscription;
 
-  @override
-  Future<void> close() async {
-    await _currentUserSubscription?.cancel();
-    return super.close();
+  Future<void> _onSettingsEvent(
+    SettingsEvent event,
+    Emitter<SettingsState> emit,
+  ) async {
+    emit(const SettingsState.loading());
+    await event.map(
+      getCurrentUser: (e) async {
+        try {
+          final userValue = await _userRepository.readUserWithAuthID(
+            authID: '123',
+          );
+          emit(SettingsState.data(userValue));
+        } catch (exception) {
+          emit(const SettingsState.error());
+        }
+      },
+      updateCurrentUser: (value) async {
+        try {
+          await _userRepository.updateUserWithAuthID(
+            authID: value.updatedUser.authID,
+            updatedUser: value.updatedUser,
+          );
+          emit(SettingsState.data(value.updatedUser));
+        } catch (exception) {
+          emit(const SettingsState.error());
+        }
+      },
+    );
   }
 }
