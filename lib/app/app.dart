@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_application/app/app_router.dart';
-import 'package:free_application/user/bloc/current_user_bloc.dart';
 import 'package:free_application/user/user_repository.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,7 +25,6 @@ class _AppState extends State<App> {
     return MultiBlocProvider(
       providers: [
         RepositoryProvider.value(value: widget.userRepository),
-        BlocProvider(create: (context) => CurrentUserBloc()),
       ],
       child: MaterialApp.router(
         theme: ThemeData.dark(),

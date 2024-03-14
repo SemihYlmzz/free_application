@@ -19,32 +19,41 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
+    required TResult Function(UserModel? currentUser) currentUserValueChanges,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
+    TResult? Function(UserModel? currentUser)? currentUserValueChanges,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
+    TResult Function(UserModel? currentUser)? currentUserValueChanges,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileCurrentUserValueChanges value)
+        currentUserValueChanges,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileCurrentUserValueChanges value)?
+        currentUserValueChanges,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileCurrentUserValueChanges value)?
+        currentUserValueChanges,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +118,7 @@ class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getCurrentUser,
+    required TResult Function(UserModel? currentUser) currentUserValueChanges,
   }) {
     return getCurrentUser();
   }
@@ -117,6 +127,7 @@ class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCurrentUser,
+    TResult? Function(UserModel? currentUser)? currentUserValueChanges,
   }) {
     return getCurrentUser?.call();
   }
@@ -125,6 +136,7 @@ class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCurrentUser,
+    TResult Function(UserModel? currentUser)? currentUserValueChanges,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -137,6 +149,8 @@ class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileCurrentUserValueChanges value)
+        currentUserValueChanges,
   }) {
     return getCurrentUser(this);
   }
@@ -145,6 +159,8 @@ class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileCurrentUserValueChanges value)?
+        currentUserValueChanges,
   }) {
     return getCurrentUser?.call(this);
   }
@@ -153,6 +169,8 @@ class _$ProfileGetCurrentUserImpl implements _ProfileGetCurrentUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileCurrentUserValueChanges value)?
+        currentUserValueChanges,
     required TResult orElse(),
   }) {
     if (getCurrentUser != null) {
@@ -167,12 +185,172 @@ abstract class _ProfileGetCurrentUser implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$ProfileCurrentUserValueChangesImplCopyWith<$Res> {
+  factory _$$ProfileCurrentUserValueChangesImplCopyWith(
+          _$ProfileCurrentUserValueChangesImpl value,
+          $Res Function(_$ProfileCurrentUserValueChangesImpl) then) =
+      __$$ProfileCurrentUserValueChangesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({UserModel? currentUser});
+
+  $UserModelCopyWith<$Res>? get currentUser;
+}
+
+/// @nodoc
+class __$$ProfileCurrentUserValueChangesImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res,
+        _$ProfileCurrentUserValueChangesImpl>
+    implements _$$ProfileCurrentUserValueChangesImplCopyWith<$Res> {
+  __$$ProfileCurrentUserValueChangesImplCopyWithImpl(
+      _$ProfileCurrentUserValueChangesImpl _value,
+      $Res Function(_$ProfileCurrentUserValueChangesImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentUser = freezed,
+  }) {
+    return _then(_$ProfileCurrentUserValueChangesImpl(
+      freezed == currentUser
+          ? _value.currentUser
+          : currentUser // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res>? get currentUser {
+    if (_value.currentUser == null) {
+      return null;
+    }
+
+    return $UserModelCopyWith<$Res>(_value.currentUser!, (value) {
+      return _then(_value.copyWith(currentUser: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ProfileCurrentUserValueChangesImpl
+    implements _ProfileCurrentUserValueChanges {
+  const _$ProfileCurrentUserValueChangesImpl(this.currentUser);
+
+  @override
+  final UserModel? currentUser;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.currentUserValueChanges(currentUser: $currentUser)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProfileCurrentUserValueChangesImpl &&
+            (identical(other.currentUser, currentUser) ||
+                other.currentUser == currentUser));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, currentUser);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProfileCurrentUserValueChangesImplCopyWith<
+          _$ProfileCurrentUserValueChangesImpl>
+      get copyWith => __$$ProfileCurrentUserValueChangesImplCopyWithImpl<
+          _$ProfileCurrentUserValueChangesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCurrentUser,
+    required TResult Function(UserModel? currentUser) currentUserValueChanges,
+  }) {
+    return currentUserValueChanges(currentUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCurrentUser,
+    TResult? Function(UserModel? currentUser)? currentUserValueChanges,
+  }) {
+    return currentUserValueChanges?.call(currentUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCurrentUser,
+    TResult Function(UserModel? currentUser)? currentUserValueChanges,
+    required TResult orElse(),
+  }) {
+    if (currentUserValueChanges != null) {
+      return currentUserValueChanges(currentUser);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ProfileGetCurrentUser value) getCurrentUser,
+    required TResult Function(_ProfileCurrentUserValueChanges value)
+        currentUserValueChanges,
+  }) {
+    return currentUserValueChanges(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult? Function(_ProfileCurrentUserValueChanges value)?
+        currentUserValueChanges,
+  }) {
+    return currentUserValueChanges?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ProfileGetCurrentUser value)? getCurrentUser,
+    TResult Function(_ProfileCurrentUserValueChanges value)?
+        currentUserValueChanges,
+    required TResult orElse(),
+  }) {
+    if (currentUserValueChanges != null) {
+      return currentUserValueChanges(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProfileCurrentUserValueChanges implements ProfileEvent {
+  const factory _ProfileCurrentUserValueChanges(final UserModel? currentUser) =
+      _$ProfileCurrentUserValueChangesImpl;
+
+  UserModel? get currentUser;
+  @JsonKey(ignore: true)
+  _$$ProfileCurrentUserValueChangesImplCopyWith<
+          _$ProfileCurrentUserValueChangesImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(UserModel currentUser) data,
+    required TResult Function() signedOut,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -181,6 +359,7 @@ mixin _$ProfileState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(UserModel currentUser)? data,
+    TResult? Function()? signedOut,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -189,6 +368,7 @@ mixin _$ProfileState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(UserModel currentUser)? data,
+    TResult Function()? signedOut,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -198,6 +378,7 @@ mixin _$ProfileState {
     required TResult Function(ProfileInitial value) initial,
     required TResult Function(ProfileLoading value) loading,
     required TResult Function(ProfileData value) data,
+    required TResult Function(_SignedOut value) signedOut,
     required TResult Function(ProfileError value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -206,6 +387,7 @@ mixin _$ProfileState {
     TResult? Function(ProfileInitial value)? initial,
     TResult? Function(ProfileLoading value)? loading,
     TResult? Function(ProfileData value)? data,
+    TResult? Function(_SignedOut value)? signedOut,
     TResult? Function(ProfileError value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -214,6 +396,7 @@ mixin _$ProfileState {
     TResult Function(ProfileInitial value)? initial,
     TResult Function(ProfileLoading value)? loading,
     TResult Function(ProfileData value)? data,
+    TResult Function(_SignedOut value)? signedOut,
     TResult Function(ProfileError value)? error,
     required TResult orElse(),
   }) =>
@@ -279,6 +462,7 @@ class _$ProfileInitialImpl implements ProfileInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(UserModel currentUser) data,
+    required TResult Function() signedOut,
     required TResult Function() error,
   }) {
     return initial();
@@ -290,6 +474,7 @@ class _$ProfileInitialImpl implements ProfileInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(UserModel currentUser)? data,
+    TResult? Function()? signedOut,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -301,6 +486,7 @@ class _$ProfileInitialImpl implements ProfileInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(UserModel currentUser)? data,
+    TResult Function()? signedOut,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -316,6 +502,7 @@ class _$ProfileInitialImpl implements ProfileInitial {
     required TResult Function(ProfileInitial value) initial,
     required TResult Function(ProfileLoading value) loading,
     required TResult Function(ProfileData value) data,
+    required TResult Function(_SignedOut value) signedOut,
     required TResult Function(ProfileError value) error,
   }) {
     return initial(this);
@@ -327,6 +514,7 @@ class _$ProfileInitialImpl implements ProfileInitial {
     TResult? Function(ProfileInitial value)? initial,
     TResult? Function(ProfileLoading value)? loading,
     TResult? Function(ProfileData value)? data,
+    TResult? Function(_SignedOut value)? signedOut,
     TResult? Function(ProfileError value)? error,
   }) {
     return initial?.call(this);
@@ -338,6 +526,7 @@ class _$ProfileInitialImpl implements ProfileInitial {
     TResult Function(ProfileInitial value)? initial,
     TResult Function(ProfileLoading value)? loading,
     TResult Function(ProfileData value)? data,
+    TResult Function(_SignedOut value)? signedOut,
     TResult Function(ProfileError value)? error,
     required TResult orElse(),
   }) {
@@ -393,6 +582,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(UserModel currentUser) data,
+    required TResult Function() signedOut,
     required TResult Function() error,
   }) {
     return loading();
@@ -404,6 +594,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(UserModel currentUser)? data,
+    TResult? Function()? signedOut,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -415,6 +606,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(UserModel currentUser)? data,
+    TResult Function()? signedOut,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -430,6 +622,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     required TResult Function(ProfileInitial value) initial,
     required TResult Function(ProfileLoading value) loading,
     required TResult Function(ProfileData value) data,
+    required TResult Function(_SignedOut value) signedOut,
     required TResult Function(ProfileError value) error,
   }) {
     return loading(this);
@@ -441,6 +634,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult? Function(ProfileInitial value)? initial,
     TResult? Function(ProfileLoading value)? loading,
     TResult? Function(ProfileData value)? data,
+    TResult? Function(_SignedOut value)? signedOut,
     TResult? Function(ProfileError value)? error,
   }) {
     return loading?.call(this);
@@ -452,6 +646,7 @@ class _$ProfileLoadingImpl implements ProfileLoading {
     TResult Function(ProfileInitial value)? initial,
     TResult Function(ProfileLoading value)? loading,
     TResult Function(ProfileData value)? data,
+    TResult Function(_SignedOut value)? signedOut,
     TResult Function(ProfileError value)? error,
     required TResult orElse(),
   }) {
@@ -544,6 +739,7 @@ class _$ProfileDataImpl implements ProfileData {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(UserModel currentUser) data,
+    required TResult Function() signedOut,
     required TResult Function() error,
   }) {
     return data(currentUser);
@@ -555,6 +751,7 @@ class _$ProfileDataImpl implements ProfileData {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(UserModel currentUser)? data,
+    TResult? Function()? signedOut,
     TResult? Function()? error,
   }) {
     return data?.call(currentUser);
@@ -566,6 +763,7 @@ class _$ProfileDataImpl implements ProfileData {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(UserModel currentUser)? data,
+    TResult Function()? signedOut,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -581,6 +779,7 @@ class _$ProfileDataImpl implements ProfileData {
     required TResult Function(ProfileInitial value) initial,
     required TResult Function(ProfileLoading value) loading,
     required TResult Function(ProfileData value) data,
+    required TResult Function(_SignedOut value) signedOut,
     required TResult Function(ProfileError value) error,
   }) {
     return data(this);
@@ -592,6 +791,7 @@ class _$ProfileDataImpl implements ProfileData {
     TResult? Function(ProfileInitial value)? initial,
     TResult? Function(ProfileLoading value)? loading,
     TResult? Function(ProfileData value)? data,
+    TResult? Function(_SignedOut value)? signedOut,
     TResult? Function(ProfileError value)? error,
   }) {
     return data?.call(this);
@@ -603,6 +803,7 @@ class _$ProfileDataImpl implements ProfileData {
     TResult Function(ProfileInitial value)? initial,
     TResult Function(ProfileLoading value)? loading,
     TResult Function(ProfileData value)? data,
+    TResult Function(_SignedOut value)? signedOut,
     TResult Function(ProfileError value)? error,
     required TResult orElse(),
   }) {
@@ -620,6 +821,126 @@ abstract class ProfileData implements ProfileState {
   @JsonKey(ignore: true)
   _$$ProfileDataImplCopyWith<_$ProfileDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignedOutImplCopyWith<$Res> {
+  factory _$$SignedOutImplCopyWith(
+          _$SignedOutImpl value, $Res Function(_$SignedOutImpl) then) =
+      __$$SignedOutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignedOutImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$SignedOutImpl>
+    implements _$$SignedOutImplCopyWith<$Res> {
+  __$$SignedOutImplCopyWithImpl(
+      _$SignedOutImpl _value, $Res Function(_$SignedOutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignedOutImpl implements _SignedOut {
+  const _$SignedOutImpl();
+
+  @override
+  String toString() {
+    return 'ProfileState.signedOut()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignedOutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(UserModel currentUser) data,
+    required TResult Function() signedOut,
+    required TResult Function() error,
+  }) {
+    return signedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(UserModel currentUser)? data,
+    TResult? Function()? signedOut,
+    TResult? Function()? error,
+  }) {
+    return signedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(UserModel currentUser)? data,
+    TResult Function()? signedOut,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (signedOut != null) {
+      return signedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileInitial value) initial,
+    required TResult Function(ProfileLoading value) loading,
+    required TResult Function(ProfileData value) data,
+    required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(ProfileError value) error,
+  }) {
+    return signedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileInitial value)? initial,
+    TResult? Function(ProfileLoading value)? loading,
+    TResult? Function(ProfileData value)? data,
+    TResult? Function(_SignedOut value)? signedOut,
+    TResult? Function(ProfileError value)? error,
+  }) {
+    return signedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileInitial value)? initial,
+    TResult Function(ProfileLoading value)? loading,
+    TResult Function(ProfileData value)? data,
+    TResult Function(_SignedOut value)? signedOut,
+    TResult Function(ProfileError value)? error,
+    required TResult orElse(),
+  }) {
+    if (signedOut != null) {
+      return signedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignedOut implements ProfileState {
+  const factory _SignedOut() = _$SignedOutImpl;
 }
 
 /// @nodoc
@@ -663,6 +984,7 @@ class _$ProfileErrorImpl implements ProfileError {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(UserModel currentUser) data,
+    required TResult Function() signedOut,
     required TResult Function() error,
   }) {
     return error();
@@ -674,6 +996,7 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(UserModel currentUser)? data,
+    TResult? Function()? signedOut,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -685,6 +1008,7 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(UserModel currentUser)? data,
+    TResult Function()? signedOut,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -700,6 +1024,7 @@ class _$ProfileErrorImpl implements ProfileError {
     required TResult Function(ProfileInitial value) initial,
     required TResult Function(ProfileLoading value) loading,
     required TResult Function(ProfileData value) data,
+    required TResult Function(_SignedOut value) signedOut,
     required TResult Function(ProfileError value) error,
   }) {
     return error(this);
@@ -711,6 +1036,7 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult? Function(ProfileInitial value)? initial,
     TResult? Function(ProfileLoading value)? loading,
     TResult? Function(ProfileData value)? data,
+    TResult? Function(_SignedOut value)? signedOut,
     TResult? Function(ProfileError value)? error,
   }) {
     return error?.call(this);
@@ -722,6 +1048,7 @@ class _$ProfileErrorImpl implements ProfileError {
     TResult Function(ProfileInitial value)? initial,
     TResult Function(ProfileLoading value)? loading,
     TResult Function(ProfileData value)? data,
+    TResult Function(_SignedOut value)? signedOut,
     TResult Function(ProfileError value)? error,
     required TResult orElse(),
   }) {
