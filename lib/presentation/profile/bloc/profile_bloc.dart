@@ -40,4 +40,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ),
     );
   }
+
+  @override
+  Future<void> close() {
+    _currentUserStreamSubscription?.cancel();
+    return super.close();
+  }
 }

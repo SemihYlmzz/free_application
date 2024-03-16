@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_application/presentation/presentation.dart';
 import 'package:free_application/user/user.dart';
-import 'package:go_router/go_router.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -92,34 +91,5 @@ class SettingsScreen extends StatelessWidget {
         },
       ),
     );
-  }
-}
-
-class SettingsRouter {
-  factory SettingsRouter() {
-    return instance;
-  }
-  SettingsRouter._();
-  static final SettingsRouter instance = SettingsRouter._();
-
-  static const String _path = '/settings';
-  static const String _name = 'settings';
-
-  String get path => _path;
-  String get name => _name;
-
-  GoRoute get route => GoRoute(
-        path: _path,
-        name: _name,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: SettingsScreen(),
-        ),
-      );
-  static void go(BuildContext context) {
-    GoRouter.of(context).goNamed(_name);
-  }
-
-  static void push(BuildContext context) {
-    GoRouter.of(context).pushNamed(_name);
   }
 }

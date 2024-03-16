@@ -14,9 +14,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   })  : _userRepository = userRepository,
         super(const SettingsState.initial()) {
     on<SettingsEvent>(_onSettingsEvent);
+
+    _currentUserSubscription ??= _userRepository.currentUserStream.listen(
+      (currentUser) {
+        add(SettingsEvent.currrentUserValueChanged(updatedValue: currentUser));
+      },
+    );
   }
   final UserRepository _userRepository;
-
+  StreamSubscription<UserModel?>? _currentUserSubscription;
   Future<void> _onSettingsEvent(
     SettingsEvent event,
     Emitter<SettingsState> emit,
@@ -25,10 +31,12 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     await event.map(
       getCurrentUser: (e) async {
         try {
-          final userValue = await _userRepository.readUserWithAuthID(
-            authID: '123',
-          );
-          emit(SettingsState.data(userValue));
+          final currentUser = _userRepository.currentUser;
+          if (currentUser == null) {
+            await _userRepository.readUserWithAuthID(authID: '123');
+          } else {
+            emit(SettingsState.data(currentUser));
+          }
         } catch (exception) {
           emit(const SettingsState.error());
         }
@@ -44,6 +52,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
           emit(const SettingsState.error());
         }
       },
+      currrentUserValueChanged: (value) {
+        emit(SettingsState.data(value.updatedValue!));
+      },
     );
+  }
+
+  @override
+  Future<void> close() {
+    _currentUserSubscription?.cancel();
+    return super.close();
   }
 }
